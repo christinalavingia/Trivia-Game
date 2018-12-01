@@ -1,0 +1,16 @@
+body {
+    background-image: url("../images/football-background.jpg");
+}
+
+.jumbotron {
+    background-color:white;
+    margin-top: 50px;
+    height: 600px;
+    font-family: 'Bowlby One SC', cursive;
+    border: 20px double black;
+}
+
+button {
+    height: 80px;
+    width: 300px;
+}
