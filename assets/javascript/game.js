@@ -2,9 +2,7 @@
 $(document).ready(function() {
 
 //Holds objects containing the question, answer options, question ID and correct answer
-var game = {
-    questions: [
-    {
+var questions = [{
         question: "Which quarterback leads the league in passing yards?",
         options: ["Patrick Mahomes", "Jared Goff", "Tom Brady", "Matt Ryan"],
         id: "question-1",
@@ -57,10 +55,37 @@ var game = {
         options: ["Travis Kelce", "George Kittle", "Jared Cook", "Zach Ertz"],
         id: "question-10",
         answer: 3
+    }];
+
+var game = {
+    correct: 0,
+    incorrect: 0,
+    seconds: 60,
+    time: function () {
+        game.seconds--;
+        $("#timer").html("<h2>Time Left: " + game.seconds + " seconds</h2>");
+        if (seconds === 0) {
+            $("#message").html("<h2>Time's Up!</h2>");
+            game.done(); 
     }
-    ]}
-
-
-
+},
     
+start: function() {
+    timer = setInterval(game.countdown, 1000);
+    $("#jumbotron").append("<h2>Time Remaining: " + game.seconds + " Seconds</h2>");
+    $("#startGame").remove();
+
+    for (var i = 0; i < questions.length; i++) {
+        $("#jumbotron").append("<p>" + questions[i].question + "</p>");
+    for (var t = 0; t < questions.length; t++) {
+        $("#jumbotron").append("<input type=radio name=question" + i + "value=" + questions[i].options[t] + ">" + questions[i]);
+    }
+    $("#jumbotron").append("<button type='button' class='btn btn-dark'>Submit</button>");
+},
+
+
+
+
+
+
 });
