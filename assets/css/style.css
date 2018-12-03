@@ -5,7 +5,6 @@ body {
 .jumbotron {
     background-color:white;
     margin-top: 50px;
-    height: 600px;
     font-family: 'Bowlby One SC', cursive;
     border: 20px double black;
 }
