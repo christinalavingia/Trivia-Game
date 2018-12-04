@@ -61,7 +61,7 @@ var quiz = {
         $("#timer").html("<h2>Time Remaining: " + quiz.seconds + " Seconds</h2>");
         quiz.seconds--;
         if (quiz.seconds === 0) {
-            $("#message").html("<h2>Time's Up!</h2>");
+            playArea.append("<h2>Time's Up!</h2>");
             quiz.done(); 
     }
 },
