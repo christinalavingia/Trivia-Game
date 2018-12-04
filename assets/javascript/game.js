@@ -1,15 +1,12 @@
 //Initializes the JavaScript code
 $(document).ready(function() {
 
-var playArea = $("#quizDiv");
+var playArea = $("#quizDiv"),
+    formDiv = $("#formDiv");
 
 //Initializes start and submit button events
-$(document).on("click", "#startQuiz", function(event) {
+$("#startQuiz").on("click", function(event) {
     quiz.start();
-});
-
-$(document).on("click", "#finishQuiz", function(event) {
-    quiz.done();
 });
 
 //Holds objects containing the question, answer options, question ID and correct answer
@@ -72,18 +69,22 @@ var quiz = {
 start: function() {
     timer = setInterval(quiz.time, 1000);
     $("#startQuiz").remove();
-
     for (var i = 0; i < questions.length; i++) {
-        $(playArea).append("<p>" + questions[i].question + "</p>");
-    for (var t = 0; t < questions.length; t++) {
-        $(playArea).append("<input type='radio' name='question-" + i + " value= " + questions[i].options[t] + ">" + questions[i].options[t]);
+        $(formDiv).append("<p>" + questions[i].question + "</p>");
+        for (var t = 0; t < questions[i].options.length; t++) {
+            $(formDiv).append("<label class='radio-inline'><input type='radio' name='question-" + i + "' value='" + questions[i].options[t] + "'>" + questions[i].options[t] + "</label>");
         }
     }
-    $(playArea).append("<button type='button' class='btn btn-dark' id='#finishQuiz'>Submit</button>");
+    $(formDiv).append("<br><button type='button' class='btn btn-dark' id='finishQuiz'>Submit</button>");
+
+    $("#finishQuiz").on("click", function(event) {
+        quiz.done();
+    }); 
 },
 
 //Scores quiz results
 done: function() {
+
     $.each($("input[name='question[0]:checked"), function() {
         if ($(this).val() == questions[0].answer) {
             quiz.correct++;
@@ -171,11 +172,14 @@ done: function() {
 results: function() {
     clearInterval(timer);
 
-    $("#quizDiv").remove();
+    $("#formDiv").remove();
+    $("#timer").remove();
     playArea.append("<h2>Quiz Complete</h2>");
     playArea.append("<h3>Correct Answers: " + this.correct + "</h3>");
-    playArea.append("<h3>Incorrect Answers: " + this.correct + "</h3>");
+    playArea.append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
     }
 }
+
+
 
 });
