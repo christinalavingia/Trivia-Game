@@ -5,11 +5,18 @@ body {
 .jumbotron {
     background-color:white;
     margin-top: 50px;
-    font-family: 'Bowlby One SC', cursive;
     border: 20px double black;
+}
+
+h2, button {
+    font-family: 'Bowlby One SC', cursive;
 }
 
 button {
     height: 80px;
     width: 300px;
+}
+
+p {
+    font-weight: bold;
 }

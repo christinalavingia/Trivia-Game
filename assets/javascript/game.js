@@ -72,10 +72,10 @@ start: function() {
     for (var i = 0; i < questions.length; i++) {
         $(formDiv).append("<p>" + questions[i].question + "</p>");
         for (var t = 0; t < questions[i].options.length; t++) {
-            $(formDiv).append("<label class='radio-inline'><input type='radio' name='question-" + i + "' value='" + questions[i].options[t] + "'>" + questions[i].options[t] + "</label>");
+            $(formDiv).append(" <label class='radio-inline'><input type='radio' name='question-" + i + "' value='" + questions[i].options[t] + "'> " + questions[i].options[t] + "</label>");
         }
     }
-    $(formDiv).append("<br><button type='button' class='btn btn-dark' id='finishQuiz'>Submit</button>");
+    $(formDiv).append("<br><br><button type='button' class='btn btn-dark' id='finishQuiz'>Submit</button>");
 
     $("#finishQuiz").on("click", function(event) {
         quiz.done();
@@ -175,8 +175,8 @@ results: function() {
     $("#formDiv").remove();
     $("#timer").remove();
     playArea.append("<h2>Quiz Complete</h2>");
-    playArea.append("<h3>Correct Answers: " + this.correct + "</h3>");
-    playArea.append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
+    playArea.append("<h2>Correct Answers: " + this.correct + "</h2>");
+    playArea.append("<h2>Incorrect Answers: " + this.incorrect + "</h2>");
     }
 }
 
