@@ -77,7 +77,7 @@ start: function() {
     }
     $(formDiv).append("<br><br><button type='button' class='btn btn-dark' id='finishQuiz'>Submit</button>");
 
-    $("#finishQuiz").on("click", function(event) {
+    $("#finishQuiz").on("click", function() {
         quiz.done();
     }); 
 },
@@ -85,85 +85,15 @@ start: function() {
 //Scores quiz results
 done: function() {
 
-    $.each($("input[name='question[0]:checked"), function() {
-        if ($(this).val() == questions[0].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
+    for (var i = 0; i < questions.length; i++) {
+        $("input[name='question[i]']:checked"), function() {
+            if ($(input[i]).val() == questions[i].answer) {
+                quiz.correct++;
+            } else {
+                quiz.incorrect++;
+            }
         }
-    });
-
-    $.each($("input[name='question[1]:checked"), function() {
-        if ($(this).val() == questions[1].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[2]:checked"), function() {
-        if ($(this).val() == questions[2].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[3]:checked"), function() {
-        if ($(this).val() == questions[3].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[4]:checked"), function() {
-        if ($(this).val() == questions[4].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[5]:checked"), function() {
-        if ($(this).val() == questions[5].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[6]:checked"), function() {
-        if ($(this).val() == questions[6].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[7]:checked"), function() {
-        if ($(this).val() == questions[7].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[8]:checked"), function() {
-        if ($(this).val() == questions[8].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
-
-    $.each($("input[name='question[9]:checked"), function() {
-        if ($(this).val() == questions[9].answer) {
-            quiz.correct++;
-        } else {
-            quiz.incorrect++;
-        }
-    });
+    }
 
     this.results();
 
@@ -175,8 +105,8 @@ results: function() {
     $("#formDiv").remove();
     $("#timer").remove();
     playArea.append("<h2>Quiz Complete</h2>");
-    playArea.append("<h2>Correct Answers: " + this.correct + "</h2>");
-    playArea.append("<h2>Incorrect Answers: " + this.incorrect + "</h2>");
+    playArea.append("<h2>Correct Answers: " + quiz.correct + "</h2>");
+    playArea.append("<h2>Incorrect Answers: " + quiz.incorrect + "</h2>");
     }
 }
 
