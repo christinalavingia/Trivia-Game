@@ -17,7 +17,7 @@ var questions = [{
     }, {
         question: "Which team did Amari Cooper play for at the beginning of the season and who does he play for now?",
         options: ["Raiders, Cowboys", "49ers, Texans", "Eagles, Cowboys", "Dolphins, Rams"],
-        answer: "Raider, Cowboys"
+        answer: "Raiders, Cowboys"
     }, {
         question: "Name the running back who is leading the league in rushing yards.",
         options: ["Ezekiel Elliott", "Melvin Gordon", "Saquon Barkley", "Todd Gurley"],
