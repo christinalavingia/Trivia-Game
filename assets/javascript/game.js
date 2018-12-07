@@ -54,7 +54,6 @@ var questions = [{
 
 //Stores quiz function
 var quiz = {
-    total: 10,
     correct: 0,
     incorrect: 0,
     seconds: 60,
